@@ -16,6 +16,6 @@ protocol NetworkingProtocol: Actor, CustomStringConvertible {
 extension NetworkingProtocol {
     var description: String {
         "<\(String(describing: type(of: self))): \(self.url?.absoluteString ?? "Not correct url")>"
-    }
+    } 
 }
 

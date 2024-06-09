@@ -9,4 +9,4 @@ import Foundation
 
 protocol MusicServiceProtocol: NetworkingProtocol {
     
-}
+} 

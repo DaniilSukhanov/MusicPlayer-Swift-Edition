@@ -28,5 +28,5 @@ struct MusicPlayerApp: App {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
-    }
+    } 
 }
