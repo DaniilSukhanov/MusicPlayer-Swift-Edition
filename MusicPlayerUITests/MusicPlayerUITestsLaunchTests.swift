@@ -30,3 +30,4 @@ final class MusicPlayerUITestsLaunchTests: XCTestCase {
         add(attachment)
     }
 }
+ 
