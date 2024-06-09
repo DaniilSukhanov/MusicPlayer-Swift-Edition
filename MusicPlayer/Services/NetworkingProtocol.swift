@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+protocol NetworkingProtocol: Actor, CustomStringConvertible {
+    var url: URL? { get }
+    
+    init(url: URL?)
+}
+
+extension NetworkingProtocol {
+    var description: String {
+        "<\(String(describing: type(of: self))): \(self.url?.absoluteString ?? "Not correct url")>"
+    }
+}
+

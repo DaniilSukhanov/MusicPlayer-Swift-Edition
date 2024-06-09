@@ -6,3 +6,5 @@
 //
 
 import Foundation
+
+typealias Middleware<AppAction: Sendable> = (AppAction) async -> AppAction?

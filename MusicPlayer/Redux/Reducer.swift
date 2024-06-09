@@ -6,3 +6,5 @@
 //
 
 import Foundation
+
+typealias Reducer<AppState: Sendable, AppAction: Sendable> = @Sendable (inout AppState, AppAction) -> ()

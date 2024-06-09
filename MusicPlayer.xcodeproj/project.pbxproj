@@ -15,6 +15,14 @@
 		E44364342C1648DB0040D3A7 /* MusicPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364332C1648DB0040D3A7 /* MusicPlayerTests.swift */; };
 		E443643E2C1648DB0040D3A7 /* MusicPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443643D2C1648DB0040D3A7 /* MusicPlayerUITests.swift */; };
 		E44364402C1648DB0040D3A7 /* MusicPlayerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443643F2C1648DB0040D3A7 /* MusicPlayerUITestsLaunchTests.swift */; };
+		E443644E2C1654230040D3A7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443644D2C1654230040D3A7 /* Store.swift */; };
+		E44364502C1654360040D3A7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443644F2C1654360040D3A7 /* State.swift */; };
+		E44364522C1657C60040D3A7 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364512C1657C60040D3A7 /* Reducer.swift */; };
+		E44364542C1657DE0040D3A7 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364532C1657DE0040D3A7 /* Middleware.swift */; };
+		E44364562C1657EC0040D3A7 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364552C1657EC0040D3A7 /* Action.swift */; };
+		E443645B2C165A1E0040D3A7 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443645A2C165A1E0040D3A7 /* MainPageView.swift */; };
+		E443645E2C165AAB0040D3A7 /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443645D2C165AAA0040D3A7 /* NetworkingProtocol.swift */; };
+		E44364632C165DF20040D3A7 /* MusicServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364622C165DF20040D3A7 /* MusicServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +54,14 @@
 		E44364392C1648DB0040D3A7 /* MusicPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E443643D2C1648DB0040D3A7 /* MusicPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerUITests.swift; sourceTree = "<group>"; };
 		E443643F2C1648DB0040D3A7 /* MusicPlayerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E443644D2C1654230040D3A7 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		E443644F2C1654360040D3A7 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		E44364512C1657C60040D3A7 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		E44364532C1657DE0040D3A7 /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
+		E44364552C1657EC0040D3A7 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		E443645A2C165A1E0040D3A7 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
+		E443645D2C165AAA0040D3A7 /* NetworkingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
+		E44364622C165DF20040D3A7 /* MusicServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +112,9 @@
 		E443641F2C1648D90040D3A7 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				E443645C2C165A470040D3A7 /* Services */,
+				E44364572C1659260040D3A7 /* Components */,
+				E443644C2C1653FE0040D3A7 /* Redux */,
 				E44364202C1648D90040D3A7 /* MusicPlayerApp.swift */,
 				E44364222C1648D90040D3A7 /* ContentView.swift */,
 				E44364242C1648D90040D3A7 /* Item.swift */,
@@ -128,6 +147,51 @@
 				E443643F2C1648DB0040D3A7 /* MusicPlayerUITestsLaunchTests.swift */,
 			);
 			path = MusicPlayerUITests;
+			sourceTree = "<group>";
+		};
+		E443644C2C1653FE0040D3A7 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				E443644D2C1654230040D3A7 /* Store.swift */,
+				E443644F2C1654360040D3A7 /* State.swift */,
+				E44364512C1657C60040D3A7 /* Reducer.swift */,
+				E44364532C1657DE0040D3A7 /* Middleware.swift */,
+				E44364552C1657EC0040D3A7 /* Action.swift */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		E44364572C1659260040D3A7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E44364592C1659630040D3A7 /* MainPage */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E44364592C1659630040D3A7 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				E443645A2C165A1E0040D3A7 /* MainPageView.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		E443645C2C165A470040D3A7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E443645F2C165DC60040D3A7 /* MusicService */,
+				E443645D2C165AAA0040D3A7 /* NetworkingProtocol.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E443645F2C165DC60040D3A7 /* MusicService */ = {
+			isa = PBXGroup;
+			children = (
+				E44364622C165DF20040D3A7 /* MusicServiceProtocol.swift */,
+			);
+			path = MusicService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +326,15 @@
 			files = (
 				E44364232C1648D90040D3A7 /* ContentView.swift in Sources */,
 				E44364252C1648D90040D3A7 /* Item.swift in Sources */,
+				E44364522C1657C60040D3A7 /* Reducer.swift in Sources */,
+				E443645E2C165AAB0040D3A7 /* NetworkingProtocol.swift in Sources */,
 				E44364212C1648D90040D3A7 /* MusicPlayerApp.swift in Sources */,
+				E44364502C1654360040D3A7 /* State.swift in Sources */,
+				E44364562C1657EC0040D3A7 /* Action.swift in Sources */,
+				E443644E2C1654230040D3A7 /* Store.swift in Sources */,
+				E44364542C1657DE0040D3A7 /* Middleware.swift in Sources */,
+				E44364632C165DF20040D3A7 /* MusicServiceProtocol.swift in Sources */,
+				E443645B2C165A1E0040D3A7 /* MainPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
