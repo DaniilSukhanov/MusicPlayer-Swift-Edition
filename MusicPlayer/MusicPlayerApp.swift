@@ -8,7 +8,10 @@
 import SwiftUI
 import SwiftData
 
+typealias RootStore = Store<RootState, RootAction>
+
 @main
+@MainActor
 struct MusicPlayerApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
@@ -22,11 +25,18 @@ struct MusicPlayerApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    @StateObject var store: RootStore = Store(
+        state: RootState(),
+        reducer: rootReducer,
+        middlewares: []
+    )
 
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
-    } 
+        .environmentObject(store)
+    }
 }

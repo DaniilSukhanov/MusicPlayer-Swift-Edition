@@ -7,4 +7,4 @@
 
 import Foundation
 
-typealias Reducer<AppState: Sendable, AppAction: Sendable> = @Sendable (inout AppState, AppAction) -> ()
+typealias Reducer<AppState: Sendable, AppAction: Sendable> = @MainActor (inout AppState, AppAction) -> ()

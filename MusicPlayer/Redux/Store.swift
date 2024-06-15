@@ -7,11 +7,12 @@
 
 import Foundation
 import SwiftUI
+import Observation
 
 // Класс для хранение, чтения состояния, а также для безопасного изменение состояния на главном потоке
 @MainActor
 final class Store<AppState: StateProtocol, AppAction: ActionProtocol>: ObservableObject {
-    @Published private(set) var state: AppState
+    private(set) var state: AppState
     private let reducer: Reducer<AppState, AppAction>
     private let middlewares: [Middleware<AppAction>]
     
@@ -23,19 +24,26 @@ final class Store<AppState: StateProtocol, AppAction: ActionProtocol>: Observabl
     
     // Измененят состояние по переданому действию
     nonisolated func dispatch(_ action: AppAction) {
-        Task { @MainActor in
+        Task {
             await executeAction(action)
         }
     }
     
     private func executeAction(_ action: AppAction) async {
         reducer(&state, action)
+        withAnimation {
+            objectWillChange.send()
+        }
         for middleware in middlewares {
-            Task { @MainActor in
+            Task {
                 guard let newAction = await middleware(action) else {
                     return
                 }
+                
                 self.reducer(&state, newAction)
+                withAnimation {
+                    objectWillChange.send()
+                }
             }
         }
     }

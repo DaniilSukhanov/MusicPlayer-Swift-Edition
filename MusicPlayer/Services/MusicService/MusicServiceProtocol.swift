@@ -7,6 +7,11 @@
 
 import Foundation
 
-protocol MusicServiceProtocol: NetworkingProtocol {
+
+protocol MusicServiceProtocol: Actor {
+    var strategy: (any MusicServiceStrategyProtocol)? { get set }
     
-} 
+    func search(_ quare: String, type: Any, offset: Int)
+}
+
+

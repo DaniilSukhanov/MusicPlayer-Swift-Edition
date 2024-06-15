@@ -20,9 +20,25 @@
 		E44364522C1657C60040D3A7 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364512C1657C60040D3A7 /* Reducer.swift */; };
 		E44364542C1657DE0040D3A7 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364532C1657DE0040D3A7 /* Middleware.swift */; };
 		E44364562C1657EC0040D3A7 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364552C1657EC0040D3A7 /* Action.swift */; };
-		E443645B2C165A1E0040D3A7 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443645A2C165A1E0040D3A7 /* MainPageView.swift */; };
 		E443645E2C165AAB0040D3A7 /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443645D2C165AAA0040D3A7 /* NetworkingProtocol.swift */; };
 		E44364632C165DF20040D3A7 /* MusicServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364622C165DF20040D3A7 /* MusicServiceProtocol.swift */; };
+		E443646C2C176BD80040D3A7 /* RapidSpotifyStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443646B2C176BD80040D3A7 /* RapidSpotifyStrategy.swift */; };
+		E44364702C1774020040D3A7 /* RapidSpotifyStrategy+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E443646F2C1774020040D3A7 /* RapidSpotifyStrategy+Models.swift */; };
+		E44364732C1CA5840040D3A7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44364722C1CA5840040D3A7 /* SearchView.swift */; };
+		E454B3682C1CAA6000AEFE9A /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3662C1CAA6000AEFE9A /* APIKeyManager.swift */; };
+		E454B36A2C1CAA7400AEFE9A /* Image+images.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3692C1CAA7400AEFE9A /* Image+images.swift */; };
+		E454B36D2C1DB40000AEFE9A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B36C2C1DB40000AEFE9A /* WelcomeView.swift */; };
+		E454B36F2C1DCE1D00AEFE9A /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B36E2C1DCE1D00AEFE9A /* AppImage.swift */; };
+		E454B3712C1DCFE000AEFE9A /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3702C1DCFE000AEFE9A /* AppColor.swift */; };
+		E454B3732C1DD09E00AEFE9A /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3722C1DD09E00AEFE9A /* UIColor+hex.swift */; };
+		E454B3752C1DD0C600AEFE9A /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3742C1DD0C600AEFE9A /* Color+hex.swift */; };
+		E454B3772C1DDAAC00AEFE9A /* WelcomeViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3762C1DDAAC00AEFE9A /* WelcomeViewReducer.swift */; };
+		E454B3792C1DDB0B00AEFE9A /* WelcomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3782C1DDB0B00AEFE9A /* WelcomeViewState.swift */; };
+		E454B37B2C1DDB1300AEFE9A /* WelcomeViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B37A2C1DDB1300AEFE9A /* WelcomeViewAction.swift */; };
+		E454B37D2C1DDB6F00AEFE9A /* RootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B37C2C1DDB6F00AEFE9A /* RootState.swift */; };
+		E454B37F2C1DDD4400AEFE9A /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B37E2C1DDD4400AEFE9A /* RootReducer.swift */; };
+		E454B3812C1DDD7900AEFE9A /* RootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3802C1DDD7900AEFE9A /* RootAction.swift */; };
+		E454B3872C1E387100AEFE9A /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E454B3862C1E387100AEFE9A /* MainPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +75,25 @@
 		E44364512C1657C60040D3A7 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		E44364532C1657DE0040D3A7 /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		E44364552C1657EC0040D3A7 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
-		E443645A2C165A1E0040D3A7 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		E443645D2C165AAA0040D3A7 /* NetworkingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
 		E44364622C165DF20040D3A7 /* MusicServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceProtocol.swift; sourceTree = "<group>"; };
+		E443646B2C176BD80040D3A7 /* RapidSpotifyStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidSpotifyStrategy.swift; sourceTree = "<group>"; };
+		E443646F2C1774020040D3A7 /* RapidSpotifyStrategy+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RapidSpotifyStrategy+Models.swift"; sourceTree = "<group>"; };
+		E44364722C1CA5840040D3A7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E454B3662C1CAA6000AEFE9A /* APIKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
+		E454B3692C1CAA7400AEFE9A /* Image+images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+images.swift"; sourceTree = "<group>"; };
+		E454B36C2C1DB40000AEFE9A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		E454B36E2C1DCE1D00AEFE9A /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
+		E454B3702C1DCFE000AEFE9A /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		E454B3722C1DD09E00AEFE9A /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		E454B3742C1DD0C600AEFE9A /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
+		E454B3762C1DDAAC00AEFE9A /* WelcomeViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewReducer.swift; sourceTree = "<group>"; };
+		E454B3782C1DDB0B00AEFE9A /* WelcomeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewState.swift; sourceTree = "<group>"; };
+		E454B37A2C1DDB1300AEFE9A /* WelcomeViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewAction.swift; sourceTree = "<group>"; };
+		E454B37C2C1DDB6F00AEFE9A /* RootState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootState.swift; sourceTree = "<group>"; };
+		E454B37E2C1DDD4400AEFE9A /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
+		E454B3802C1DDD7900AEFE9A /* RootAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAction.swift; sourceTree = "<group>"; };
+		E454B3862C1E387100AEFE9A /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +144,8 @@
 		E443641F2C1648D90040D3A7 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				E454B3672C1CAA6000AEFE9A /* Other */,
+				E443646D2C1773250040D3A7 /* Models */,
 				E443645C2C165A470040D3A7 /* Services */,
 				E44364572C1659260040D3A7 /* Components */,
 				E443644C2C1653FE0040D3A7 /* Redux */,
@@ -164,7 +198,12 @@
 		E44364572C1659260040D3A7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E454B36B2C1DB3E900AEFE9A /* WelcomeView */,
+				E44364712C1CA56C0040D3A7 /* SearchView */,
 				E44364592C1659630040D3A7 /* MainPage */,
+				E454B37C2C1DDB6F00AEFE9A /* RootState.swift */,
+				E454B37E2C1DDD4400AEFE9A /* RootReducer.swift */,
+				E454B3802C1DDD7900AEFE9A /* RootAction.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -172,7 +211,7 @@
 		E44364592C1659630040D3A7 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				E443645A2C165A1E0040D3A7 /* MainPageView.swift */,
+				E454B3862C1E387100AEFE9A /* MainPage.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -190,8 +229,57 @@
 			isa = PBXGroup;
 			children = (
 				E44364622C165DF20040D3A7 /* MusicServiceProtocol.swift */,
+				E443646B2C176BD80040D3A7 /* RapidSpotifyStrategy.swift */,
 			);
 			path = MusicService;
+			sourceTree = "<group>";
+		};
+		E443646D2C1773250040D3A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E443646E2C17733D0040D3A7 /* RapidSpotifyStrategy */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E443646E2C17733D0040D3A7 /* RapidSpotifyStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				E443646F2C1774020040D3A7 /* RapidSpotifyStrategy+Models.swift */,
+			);
+			path = RapidSpotifyStrategy;
+			sourceTree = "<group>";
+		};
+		E44364712C1CA56C0040D3A7 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				E44364722C1CA5840040D3A7 /* SearchView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		E454B3672C1CAA6000AEFE9A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E454B3662C1CAA6000AEFE9A /* APIKeyManager.swift */,
+				E454B3692C1CAA7400AEFE9A /* Image+images.swift */,
+				E454B36E2C1DCE1D00AEFE9A /* AppImage.swift */,
+				E454B3702C1DCFE000AEFE9A /* AppColor.swift */,
+				E454B3722C1DD09E00AEFE9A /* UIColor+hex.swift */,
+				E454B3742C1DD0C600AEFE9A /* Color+hex.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		E454B36B2C1DB3E900AEFE9A /* WelcomeView */ = {
+			isa = PBXGroup;
+			children = (
+				E454B36C2C1DB40000AEFE9A /* WelcomeView.swift */,
+				E454B3762C1DDAAC00AEFE9A /* WelcomeViewReducer.swift */,
+				E454B3782C1DDB0B00AEFE9A /* WelcomeViewState.swift */,
+				E454B37A2C1DDB1300AEFE9A /* WelcomeViewAction.swift */,
+			);
+			path = WelcomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,16 +413,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44364232C1648D90040D3A7 /* ContentView.swift in Sources */,
+				E454B36A2C1CAA7400AEFE9A /* Image+images.swift in Sources */,
+				E454B3872C1E387100AEFE9A /* MainPage.swift in Sources */,
 				E44364252C1648D90040D3A7 /* Item.swift in Sources */,
 				E44364522C1657C60040D3A7 /* Reducer.swift in Sources */,
+				E44364702C1774020040D3A7 /* RapidSpotifyStrategy+Models.swift in Sources */,
+				E454B36D2C1DB40000AEFE9A /* WelcomeView.swift in Sources */,
+				E454B3772C1DDAAC00AEFE9A /* WelcomeViewReducer.swift in Sources */,
+				E454B3812C1DDD7900AEFE9A /* RootAction.swift in Sources */,
+				E454B3752C1DD0C600AEFE9A /* Color+hex.swift in Sources */,
 				E443645E2C165AAB0040D3A7 /* NetworkingProtocol.swift in Sources */,
 				E44364212C1648D90040D3A7 /* MusicPlayerApp.swift in Sources */,
 				E44364502C1654360040D3A7 /* State.swift in Sources */,
 				E44364562C1657EC0040D3A7 /* Action.swift in Sources */,
 				E443644E2C1654230040D3A7 /* Store.swift in Sources */,
+				E454B3712C1DCFE000AEFE9A /* AppColor.swift in Sources */,
+				E454B3682C1CAA6000AEFE9A /* APIKeyManager.swift in Sources */,
+				E454B37B2C1DDB1300AEFE9A /* WelcomeViewAction.swift in Sources */,
 				E44364542C1657DE0040D3A7 /* Middleware.swift in Sources */,
+				E454B3792C1DDB0B00AEFE9A /* WelcomeViewState.swift in Sources */,
+				E454B37F2C1DDD4400AEFE9A /* RootReducer.swift in Sources */,
+				E44364732C1CA5840040D3A7 /* SearchView.swift in Sources */,
 				E44364632C165DF20040D3A7 /* MusicServiceProtocol.swift in Sources */,
-				E443645B2C165A1E0040D3A7 /* MainPageView.swift in Sources */,
+				E454B37D2C1DDB6F00AEFE9A /* RootState.swift in Sources */,
+				E443646C2C176BD80040D3A7 /* RapidSpotifyStrategy.swift in Sources */,
+				E454B3732C1DD09E00AEFE9A /* UIColor+hex.swift in Sources */,
+				E454B36F2C1DCE1D00AEFE9A /* AppImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +618,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MusicPlayer.daniilsukhanov.MusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -543,6 +648,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MusicPlayer.daniilsukhanov.MusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
