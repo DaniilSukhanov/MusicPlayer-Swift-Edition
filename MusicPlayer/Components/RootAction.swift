@@ -9,4 +9,5 @@ import Foundation
 
 enum RootAction: ActionProtocol {
     case welcomeView(action: WelcomeViewAction)
+    case mainPageReducer(action: MainPageAction)
 }

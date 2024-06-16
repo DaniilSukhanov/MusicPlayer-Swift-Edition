@@ -15,15 +15,12 @@ struct AppColor {
     static let dark = Color(hex: 0x0F0817)
     static let purple1 = Color(hex: 0x9D1DCA)
     static let pink = Color(hex: 0xDB28A9)
-    static let gradientBackground = AngularGradient(
-        gradient: Gradient(
-            stops: [
-                .init(color: Color(hex: 0x842ED8), location: 0.31),
-                .init(color: Color(hex: 0xDB28A9), location: 0.59),
-                .init(color: Color(hex: 0x9D1DCA), location: 1)
-            ]
-        ),
-        center: .center,
-        angle: .degrees(90)
+    static let gradientBackground = Gradient(
+        stops: [
+            .init(color: Color(hex: 0x842ED8), location: 0.31),
+            .init(color: Color(hex: 0xDB28A9), location: 0.59),
+            .init(color: Color(hex: 0x9D1DCA), location: 1)
+        ]
     )
+    static let augularGradientBackground = AngularGradient.init(gradient: gradientBackground, center: .center, angle: .degrees(90))
 }

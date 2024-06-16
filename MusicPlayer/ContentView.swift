@@ -16,14 +16,19 @@ struct ContentView: View {
     @ViewBuilder var content: some View {
         if store.state.welcomeViewState.isShowWelcomeView {
             WelcomeView()
-                .transition(.opacity)
+                .transition(.opacity.animation(.linear(duration: 3)))
         } else {
-            EmptyView()
+            MainPage()
         }
     }
     
     var body: some View {
-        content
+        ZStack {
+            GeometryReader { geometry in
+                LiveBackgroud(size: geometry.size)
+            }.ignoresSafeArea()
+            content
+        }
     }
 
     private func addItem() {

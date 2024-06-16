@@ -32,9 +32,9 @@ struct WelcomeView: View {
                         .fontWeight(.semibold)
                         .foregroundStyle(.gray)
                         .padding(.bottom, 51)
-                    Button(action: { withAnimation { store.dispatch(.welcomeView(action: .continue)) } }) {
+                    Button(action: { store.dispatch(.welcomeView(action: .continue)) }) {
                         RoundedRectangle(cornerRadius: 25)
-                            .fill(AppColor.gradientBackground)
+                            .fill(AppColor.augularGradientBackground)
                             .frame(maxWidth: 203, maxHeight: 48)
                             .overlay {
                                 Text("Continue")

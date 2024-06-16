@@ -9,4 +9,5 @@ import SwiftUI
 
 struct AppImage {
     static let welcomeBackground = Image("WelcomeBackground")
+    static let search = Image(systemName: "magnifyingglass")
 }

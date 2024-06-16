@@ -11,5 +11,7 @@ import Foundation
     switch action {
     case .welcomeView(action: let action):
         welcomeViewReducer(&state.welcomeViewState, action)
+    case .mainPageReducer(action: let action):
+        mainPageReducer(&state.mainPageState, action)
     }
 }
