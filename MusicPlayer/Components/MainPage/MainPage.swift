@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct MainPage: View {
-    @State private var searchText = ""
+    @EnvironmentObject var store: RootStore
+    @StateObject private var searchText = SearchText()
     @State private var carouselSelectedItem: CarouselItem = .recent
     @FocusState private var isFocusSearch: Bool
     
@@ -16,10 +18,19 @@ struct MainPage: View {
         ScrollView {
             VStack {
                 header
+                if let content = store.state.mainPageState.content {
+                    ContentList(content: content)
+                }
             }.padding()
         }.onTapGesture {
             isFocusSearch = false
         }
+    }
+}
+
+fileprivate extension MainPage {
+    final class SearchText: ObservableObject {
+        @Published var value = ""
     }
 }
 
@@ -57,7 +68,7 @@ fileprivate extension MainPage {
         HStack {
             AppImage.search
                 .foregroundStyle(AppColor.lightGray)
-            TextField(text: $searchText) {
+            TextField(text: $searchText.value) {
                 Text("Search song, playslist, artist...")
                     .font(.system(size: 14))
                     .fontWeight(.regular)
@@ -65,6 +76,14 @@ fileprivate extension MainPage {
                     
             }.foregroundStyle(AppColor.lightGray)
                 .focused($isFocusSearch)
+                .onReceive(
+                    searchText.$value
+                        .debounce(for: .seconds(0.8), scheduler: DispatchQueue.main)
+                ) { value in
+                    if !value.isEmpty {
+                        store.dispatch(.mainPageReducer(action: .search(value)))
+                    }
+                }
             
         }.padding()
             .background {

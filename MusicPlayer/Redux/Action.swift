@@ -10,3 +10,9 @@ import Foundation
 protocol ActionProtocol: Sendable {
     
 }
+
+extension ActionProtocol {
+    var description: String {
+        String(describing: self)
+    }
+}

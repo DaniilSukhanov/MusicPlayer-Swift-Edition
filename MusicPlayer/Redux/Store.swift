@@ -14,9 +14,9 @@ import Observation
 final class Store<AppState: StateProtocol, AppAction: ActionProtocol>: ObservableObject {
     private(set) var state: AppState
     private let reducer: Reducer<AppState, AppAction>
-    private let middlewares: [Middleware<AppAction>]
+    private let middlewares: [Middleware<AppState, AppAction>]
     
-    init(state: AppState, reducer: @escaping Reducer<AppState, AppAction>, middlewares: [Middleware<AppAction>]) {
+    init(state: AppState, reducer: @escaping Reducer<AppState, AppAction>, middlewares: [Middleware<AppState, AppAction>]) {
         self.state = state
         self.reducer = reducer
         self.middlewares = middlewares
@@ -36,14 +36,17 @@ final class Store<AppState: StateProtocol, AppAction: ActionProtocol>: Observabl
         }
         for middleware in middlewares {
             Task {
-                guard let newAction = await middleware(action) else {
+                guard let newAction = await middleware(state, action) else {
                     return
                 }
-                
+                await executeAction(newAction)
+                /*
                 self.reducer(&state, newAction)
                 withAnimation {
                     objectWillChange.send()
                 }
+                 */
+                
             }
         }
     }

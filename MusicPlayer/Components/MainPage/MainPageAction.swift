@@ -8,5 +8,6 @@
 import Foundation
 
 enum MainPageAction: ActionProtocol {
-    
+    case search(String)
+    case setContent([ContentModel])
 }

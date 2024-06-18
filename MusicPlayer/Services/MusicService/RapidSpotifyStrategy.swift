@@ -7,11 +7,10 @@
 
 @preconcurrency import Foundation
 
-protocol MusicServiceStrategyProtocol: NetworkingProtocol {
-    associatedtype T
+protocol MusicServiceStrategyProtocol: NetworkingProtocol, Actor {
     associatedtype MusicServiceItem
     
-    func search(_ quare: String, type: T, offset: Int, limit: Int) async throws -> MusicServiceItem
+    func search(_ quare: String, type: String, offset: Int, limit: Int) async throws -> MusicServiceItem
 }
 
 actor RapidSpotifyStrategy: MusicServiceStrategyProtocol {
@@ -24,14 +23,25 @@ actor RapidSpotifyStrategy: MusicServiceStrategyProtocol {
         self.baseURL = baseURL
     }
     
-    func search(_ quare: String, type: TypeSearch, offset: Int, limit: Int) async throws -> RapidSpotifyItem {
-        let queryItems = [URLQueryItem(name: "offset", value: String(offset)), URLQueryItem(name: "limit", value: String(limit))]
+    private func addAPIKey(request: inout URLRequest) {
+        request.setValue(NonSecretAccessData.apikeyMusicService, forHTTPHeaderField: "x-rapidapi-key")
+        request.setValue("spotify23.p.rapidapi.com", forHTTPHeaderField: "x-rapidapi-host")
+    }
+    
+    func search(_ quare: String, type: String, offset: Int, limit: Int) async throws -> RapidSpotifyItem {
+        let queryItems = [
+            URLQueryItem(name: "q", value: quare),
+            URLQueryItem(name: "type", value: type),
+            URLQueryItem(name: "offset", value: String(offset)),
+            URLQueryItem(name: "limit", value: String(limit))
+        ]
         var components = URLComponents(string: "\(baseURL)/search")
         components?.queryItems = queryItems
         guard let url = components?.url else {
             throw RapidSpotifyStrategyError.notCorrrectURL
         }
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        addAPIKey(request: &request)
         let (data, responce) = try await URLSession.shared.data(for: request)
         guard let statusCode = (responce as? HTTPURLResponse)?.statusCode else {
             throw RapidSpotifyStrategyError.notCorrectStatusCode
@@ -43,14 +53,6 @@ actor RapidSpotifyStrategy: MusicServiceStrategyProtocol {
         return result
     }
     
-}
-
-extension RapidSpotifyStrategy {
-    enum TypeSearch: String {
-        case multi, albums, artists
-        case episodes, genres, playlists
-        case podcasts, tracks, users
-    }
 }
 
 extension RapidSpotifyStrategy {

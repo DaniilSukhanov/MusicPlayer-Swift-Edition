@@ -16,22 +16,22 @@ extension RapidSpotifyStrategy {
         let items: [TracksItem]
         let pagingInfo: PagingInfo
         
-        enum CodingKeys: CodingKey {
+        enum TraksCodingKeys: CodingKey {
             case totalCount
             case items
             case pagingInfo
         }
         
-        enum InputCodingKeys: CodingKey {
+        enum RootCodingKeys: CodingKey {
             case tracks
         }
         
         init(from decoder: any Decoder) throws {
-            let container = try decoder.container(keyedBy: InputCodingKeys.self)
-            let tracks = try container.decode(Tracks.self, forKey: .tracks)
-            self.totalCount = tracks.totalCount
-            self.items = tracks.items
-            self.pagingInfo = tracks.pagingInfo
+            let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
+            let trackContainer = try rootContainer.nestedContainer(keyedBy: TraksCodingKeys.self, forKey: .tracks)
+            totalCount = try trackContainer.decode(Int.self, forKey: .totalCount)
+            items = try trackContainer.decode([TracksItem].self, forKey: .items)
+            pagingInfo = try trackContainer.decode(PagingInfo.self, forKey: .pagingInfo)
         }
     }
 
@@ -93,6 +93,10 @@ extension RapidSpotifyStrategy {
 
     // MARK: - SharingInfo
     struct SharingInfo: Decodable, Sendable {
+        enum CodingKeys: String, CodingKey {
+            case shareURL = "shareUrl"
+        }
+        
         let shareURL: String
     }
 
@@ -114,12 +118,7 @@ extension RapidSpotifyStrategy {
 
     // MARK: - ContentRating
     struct ContentRating: Decodable, Sendable {
-        let label: Label
-    }
-
-    enum Label: String, Decodable, Sendable {
-        case explicit
-        case none
+        let label: String
     }
 
     // MARK: - Duration

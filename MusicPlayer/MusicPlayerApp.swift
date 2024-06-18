@@ -29,7 +29,7 @@ struct MusicPlayerApp: App {
     @StateObject var store: RootStore = Store(
         state: RootState(),
         reducer: rootReducer,
-        middlewares: []
+        middlewares: [middlewareLog(), middlewareRoot()]
     )
 
     var body: some Scene {

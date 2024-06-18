@@ -9,8 +9,6 @@ import Foundation
 
 protocol NetworkingProtocol: Actor {
     var baseURL: String { get }
-    
-    init(baseURL: String)
 }
 
 
