@@ -40,13 +40,6 @@ final class Store<AppState: StateProtocol, AppAction: ActionProtocol>: Observabl
                     return
                 }
                 await executeAction(newAction)
-                /*
-                self.reducer(&state, newAction)
-                withAnimation {
-                    objectWillChange.send()
-                }
-                 */
-                
             }
         }
     }

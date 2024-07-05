@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentList: View {
+    @EnvironmentObject var store: RootStore
     let content: [ContentModel]
+    let axis: Axis
     
-    var body: some View {
-        VStack(spacing: 24) {
-            ForEach(content) { model in
-                trackContent(model)
-                    .frame(maxHeight: 56)
-            }
+    init(content: [ContentModel], axis: Axis = .vertical) {
+        self.content = content
+        self.axis = axis
+    }
+    
+    @ViewBuilder var body: some View {
+        let content = ForEach(content) { model in
+            contentView(model: model)
+        }
+        if axis == .vertical {
+            VStack(alignment: .center, spacing: 24, content: { content })
+        } else {
+            HStack(alignment: .top, spacing: 24, content: { content })
+        }
+    }
+    
+    @ViewBuilder func contentView(model: ContentModel) -> some View {
+        switch model.type {
+        case .track:
+            trackContent(model)
+        case .playlist:
+            playlistContent(model)
         }
     }
     
@@ -25,6 +43,7 @@ struct ContentList: View {
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: 56, maxHeight: 56)
+                .clipShape(.rect(cornerRadius: 10))
                 .padding(.trailing, 16)
                 
                 
@@ -32,7 +51,7 @@ struct ContentList: View {
                 Text(model.name)
                     .foregroundStyle(AppColor.white)
                     .font(.system(size: 18, weight: .semibold))
-                Text(model.artists.compactMap({ $0.name }).joined(separator: ", "))
+                Text(model.artists?.compactMap({ $0.name }).joined(separator: ", ") ?? "None")
                     .foregroundStyle(AppColor.lightGray)
                     .font(.system(size: 14, weight: .regular))
                     .lineLimit(1)
@@ -42,6 +61,26 @@ struct ContentList: View {
                 .foregroundStyle(AppColor.white)
                 .font(.system(size: 14, weight: .regular))
         }
+    }
+    
+    private func playlistContent(_ model: ContentModel) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            model.image
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: 208, maxHeight: 208)
+                .clipShape(.rect(cornerRadius: 10))
+            VStack(alignment: .leading, spacing: 4) {
+                Text(model.name)
+                    .foregroundStyle(AppColor.white)
+                    .font(.system(size: 18, weight: .semibold))
+                Text(model.artists?.compactMap({ $0.name }).joined(separator: ", ") ?? "None")
+                    .foregroundStyle(AppColor.lightGray)
+                    .font(.system(size: 14, weight: .regular))
+                    .lineLimit(1)
+            }
+        }
+        
     }
 }
 

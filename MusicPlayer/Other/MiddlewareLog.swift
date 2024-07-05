@@ -9,7 +9,7 @@ import Foundation
 import OSLog
 
 func middlewareLog() -> Middleware<RootState, RootAction> {
-    let logger = Logger(subsystem: "Action", category: "Action")
+    let logger = Logger(subsystem: #function, category: "Action")
     
     func f(_ state: RootState, _ action: RootAction) async -> RootAction? {
         logger.info("action: \(action.description)")

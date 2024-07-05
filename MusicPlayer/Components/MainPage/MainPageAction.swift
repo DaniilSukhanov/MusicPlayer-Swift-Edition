@@ -8,6 +8,7 @@
 import Foundation
 
 enum MainPageAction: ActionProtocol {
-    case search(String)
-    case setContent([ContentModel])
+    case search(String, `type`: MusicService.TypeSearch)
+    case setContent([ContentConteiner])
+    case searchPlaylist(String)
 }

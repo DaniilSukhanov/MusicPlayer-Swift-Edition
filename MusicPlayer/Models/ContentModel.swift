@@ -12,8 +12,9 @@ struct ContentModel: Identifiable {
     let id: String
     let image: Image
     let `type`: `Type`
-    let artists: [Artist]
+    let artists: [Artist]?
     let duration: String?
+    let owner: String?
 }
 
 extension ContentModel {

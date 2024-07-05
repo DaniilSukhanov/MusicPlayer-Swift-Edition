@@ -88,7 +88,7 @@ extension RapidSpotifyStrategy {
     // MARK: - Source
     struct Source: Decodable, Sendable {
         let url: String
-        let width, height: Int
+        let width, height: Int?
     }
 
     // MARK: - SharingInfo

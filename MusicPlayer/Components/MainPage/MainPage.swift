@@ -13,13 +13,25 @@ struct MainPage: View {
     @StateObject private var searchText = SearchText()
     @State private var carouselSelectedItem: CarouselItem = .recent
     @FocusState private var isFocusSearch: Bool
+    @State private var isTrack = true
     
     var body: some View {
         ScrollView {
             VStack {
                 header
-                if let content = store.state.mainPageState.content {
-                    ContentList(content: content)
+                Button("isTrack: \(isTrack)") {
+                    isTrack.toggle()
+                }
+                if let data = store.state.mainPageState.content {
+                    ContentListView(axis: .vertical, data: data) { container in
+                        if let model = container.value as? ShortlyTrackModel {
+                            ShortyTrackView(model: model)
+                        } else if let model = container.value as? ShortlyPlaylistModel {
+                            ShortyPlaylistView(model: model)
+                        } else {
+                            EmptyView()
+                        }
+                    }
                 }
             }.padding()
         }.onTapGesture {
@@ -81,7 +93,11 @@ fileprivate extension MainPage {
                         .debounce(for: .seconds(0.8), scheduler: DispatchQueue.main)
                 ) { value in
                     if !value.isEmpty {
-                        store.dispatch(.mainPageReducer(action: .search(value)))
+                        store.dispatch(
+                            .mainPageReducer(
+                                action: .search(value, type: isTrack ? .tracks : .playlists)
+                            )
+                        )
                     }
                 }
             

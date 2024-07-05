@@ -11,4 +11,5 @@ struct AppImage {
     static let welcomeBackground = Image("WelcomeBackground")
     static let search = Image(systemName: "magnifyingglass")
     static let noImage = Image("NoImage")
+    static let chevronRight = Image(systemName: "chevron.right")
 }

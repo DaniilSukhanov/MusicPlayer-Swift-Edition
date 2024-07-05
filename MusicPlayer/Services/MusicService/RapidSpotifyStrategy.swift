@@ -6,6 +6,7 @@
 //
 
 @preconcurrency import Foundation
+import OSLog
 
 protocol MusicServiceStrategyProtocol: NetworkingProtocol, Actor {
     associatedtype MusicServiceItem
@@ -15,6 +16,7 @@ protocol MusicServiceStrategyProtocol: NetworkingProtocol, Actor {
 
 actor RapidSpotifyStrategy: MusicServiceStrategyProtocol {
     let baseURL: String
+    private let logger = Logger(subsystem: #function, category: "Networking")
     private let decoder = {
         JSONDecoder()
     }()
@@ -40,6 +42,7 @@ actor RapidSpotifyStrategy: MusicServiceStrategyProtocol {
         guard let url = components?.url else {
             throw RapidSpotifyStrategyError.notCorrrectURL
         }
+        logger.debug("request \(url.absoluteString)")
         var request = URLRequest(url: url)
         addAPIKey(request: &request)
         let (data, responce) = try await URLSession.shared.data(for: request)
@@ -49,7 +52,21 @@ actor RapidSpotifyStrategy: MusicServiceStrategyProtocol {
         if statusCode != 200 {
             throw RapidSpotifyStrategyError.errorResponce(responce)
         }
-        let result = try decoder.decode(Tracks.self, from: data)
+        var result: RapidSpotifyItem
+        do {
+            switch type {
+            case "tracks":
+                result = try decoder.decode(Tracks.self, from: data)
+            case "playlists":
+                result = try decoder.decode(Playlists.self, from: data)
+            default:
+                throw RapidSpotifyStrategyError.notCorrectType(type)
+            }
+        } catch let error where error is DecodingError {
+            logger.debug("json: \(data.prettyJSON ?? "not json")")
+        
+            throw RapidSpotifyStrategyError.invalidJSON(error)
+        }
         return result
     }
     
@@ -60,5 +77,7 @@ extension RapidSpotifyStrategy {
         case notCorrrectURL
         case errorResponce(URLResponse)
         case notCorrectStatusCode
+        case notCorrectType(String)
+        case invalidJSON(Error)
     }
 }

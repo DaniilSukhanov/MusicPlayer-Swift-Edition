@@ -8,5 +8,5 @@
 import Foundation
 
 struct MainPageState: StateProtocol {
-    var content: [ContentModel]? = nil
+    var content: [ContentConteiner]? = nil
 }
