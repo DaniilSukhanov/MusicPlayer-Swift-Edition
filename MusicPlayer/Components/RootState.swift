@@ -11,5 +11,4 @@ import AVFoundation
 struct RootState: StateProtocol {
     var welcomeViewState = WelcomeViewState()
     var mainPageState = MainPageState()
-    var contentListState = ContentListState()
 }
