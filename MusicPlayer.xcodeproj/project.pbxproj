@@ -78,7 +78,6 @@
 		E4FCC3652C3C5A4700109A85 /* loadTestAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCC3642C3C5A4700109A85 /* loadTestAudio.swift */; };
 		E4FCC3672C3C65C000109A85 /* MiddlewarePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCC3662C3C65C000109A85 /* MiddlewarePlayer.swift */; };
 		E4FCC3692C3C8E2200109A85 /* TimeInterval+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCC3682C3C8E2200109A85 /* TimeInterval+toString.swift */; };
-		E4FCC36B2C3D489F00109A85 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCC36A2C3D489F00109A85 /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,7 +172,6 @@
 		E4FCC3642C3C5A4700109A85 /* loadTestAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadTestAudio.swift; sourceTree = "<group>"; };
 		E4FCC3662C3C65C000109A85 /* MiddlewarePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddlewarePlayer.swift; sourceTree = "<group>"; };
 		E4FCC3682C3C8E2200109A85 /* TimeInterval+toString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+toString.swift"; sourceTree = "<group>"; };
-		E4FCC36A2C3D489F00109A85 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,7 +366,6 @@
 				E4FCC3422C39D32900109A85 /* Store+create.swift */,
 				E4FCC3642C3C5A4700109A85 /* loadTestAudio.swift */,
 				E4FCC3682C3C8E2200109A85 /* TimeInterval+toString.swift */,
-				E4FCC36A2C3D489F00109A85 /* AudioPlayer.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -600,7 +597,6 @@
 				E454B38D2C1E3BCB00AEFE9A /* MainPageReducer.swift in Sources */,
 				E44364252C1648D90040D3A7 /* Item.swift in Sources */,
 				E44364522C1657C60040D3A7 /* Reducer.swift in Sources */,
-				E4FCC36B2C3D489F00109A85 /* AudioPlayer.swift in Sources */,
 				E454B3AB2C20921600AEFE9A /* NonSecretAccessData.swift in Sources */,
 				E4FCC34D2C3C3D0F00109A85 /* PlayerState.swift in Sources */,
 				E44364702C1774020040D3A7 /* RapidSpotifyStrategy+Tracks.swift in Sources */,
