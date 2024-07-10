@@ -9,6 +9,7 @@ import Foundation
 
 func middlewareRoot() -> Middleware<RootState, RootAction> {
     let mainPage = middlewareMainPage()
+    let middlewarePlayer = middlewarePlayer()
 
     return { state, action in
         switch action {
@@ -17,6 +18,11 @@ func middlewareRoot() -> Middleware<RootState, RootAction> {
                 return nil
             }
             return .mainPageReducer(action: newAction)
+        case .player(action: let action):
+            guard let newAction = await middlewarePlayer(state.playerState, action) else {
+                return nil
+            }
+            return .player(action: newAction)
         default:
             break
         }

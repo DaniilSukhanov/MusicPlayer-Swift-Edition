@@ -13,5 +13,7 @@ import Foundation
         welcomeViewReducer(&state.welcomeViewState, action)
     case .mainPageReducer(action: let action):
         mainPageReducer(&state.mainPageState, action)
+    case .player(action: let action):
+        playerReducer(&state.playerState, action)
     }
 }

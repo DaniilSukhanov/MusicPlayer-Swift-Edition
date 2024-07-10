@@ -8,26 +8,32 @@
 import AVFoundation
 
 protocol AudioQueueManagerProtocol {
-    var historyAudio: [AVPlayerItem] { get }
-    var currentAudio: AVPlayerItem? { get }
-    var queueAudio: [AVPlayerItem] { get }
+    associatedtype Audio
     
-    func add(audio: AVPlayerItem)
-    func removeFromQueue(audio: AVPlayerItem)
-    func insertInQueue(audio: AVPlayerItem, index: Int)
+    var historyAudio: [Audio] { get }
+    var currentAudio: Audio? { get }
+    var queueAudio: [Audio] { get }
+    
+    func add(audio: Audio)
+    func removeFromQueue(audio: Audio)
+    func insertInQueue(audio: Audio, index: Int)
     func nextAudio()
     func previusAudion()
     func clearHistoryAudion()
     func clearQueueAudion()
     func clearCurrentAudio()
+    func clearAll()
 }
 
-final class AudioQueueManager: AudioQueueManagerProtocol {
-    private(set) var historyAudio = [AVPlayerItem]()
-    private(set) var currentAudio: AVPlayerItem?
-    private(set) var queueAudio = [AVPlayerItem]()
+final class AudioQueueManager<Element>: AudioQueueManagerProtocol where Element: Equatable {
+    typealias Audio = Element
     
-    func add(audio: AVPlayerItem) {
+    private(set) var historyAudio = [Audio]()
+    private(set) var currentAudio: Audio?
+    private(set) var queueAudio = [Audio]()
+    
+    
+    func add(audio: Audio) {
         if currentAudio == nil {
             currentAudio = audio
         } else {
@@ -35,13 +41,13 @@ final class AudioQueueManager: AudioQueueManagerProtocol {
         }
     }
     
-    func removeFromQueue(audio: AVPlayerItem) {
+    func removeFromQueue(audio: Audio) {
         if let index = queueAudio.firstIndex(where: { $0 == audio }) {
             queueAudio.remove(at: index)
         }
     }
     
-    func insertInQueue(audio: AVPlayerItem, index: Int) {
+    func insertInQueue(audio: Audio, index: Int) {
         queueAudio.insert(audio, at: index)
     }
     
@@ -57,6 +63,13 @@ final class AudioQueueManager: AudioQueueManagerProtocol {
     }
     
     func previusAudion() {
+        if let currentAudio {
+            queueAudio.insert(currentAudio, at: 0)
+        }
+        if let previusAudion = historyAudio.last {
+            currentAudio = previusAudion
+            
+        }
         
     }
     
@@ -70,6 +83,12 @@ final class AudioQueueManager: AudioQueueManagerProtocol {
     
     func clearCurrentAudio() {
         currentAudio = nil
+    }
+    
+    func clearAll() {
+        clearQueueAudion()
+        clearCurrentAudio()
+        clearHistoryAudion()
     }
 }
 

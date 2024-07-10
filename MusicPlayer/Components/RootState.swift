@@ -7,8 +7,8 @@
 
 import AVFoundation
 
-@MainActor
 struct RootState: StateProtocol {
     var welcomeViewState = WelcomeViewState()
     var mainPageState = MainPageState()
+    var playerState = PlayerState()
 }

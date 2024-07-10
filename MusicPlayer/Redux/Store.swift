@@ -23,15 +23,15 @@ final class Store<AppState: StateProtocol, AppAction: ActionProtocol>: Observabl
     }
     
     // Измененят состояние по переданому действию
-    nonisolated func dispatch(_ action: AppAction) {
+    nonisolated func dispatch(_ action: AppAction, animation: Animation? = nil) {
         Task {
-            await executeAction(action)
+            await executeAction(action, animation: animation)
         }
     }
     
-    private func executeAction(_ action: AppAction) async {
+    private func executeAction(_ action: AppAction, animation: Animation? = nil) async {
         reducer(&state, action)
-        withAnimation {
+        withAnimation(animation) {
             objectWillChange.send()
         }
         for middleware in middlewares {
@@ -39,7 +39,7 @@ final class Store<AppState: StateProtocol, AppAction: ActionProtocol>: Observabl
                 guard let newAction = await middleware(state, action) else {
                     return
                 }
-                await executeAction(newAction)
+                await executeAction(newAction, animation: animation)
             }
         }
     }

@@ -7,4 +7,4 @@
 
 import Foundation
 
-typealias Middleware<AppState: Sendable, AppAction: Sendable> = (AppState, AppAction) async -> AppAction?
+typealias Middleware<AppState: Sendable, AppAction: Sendable> = @Sendable (AppState, AppAction) async -> AppAction?

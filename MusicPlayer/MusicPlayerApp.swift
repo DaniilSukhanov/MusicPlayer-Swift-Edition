@@ -8,8 +8,6 @@
 import SwiftUI
 import SwiftData
 
-typealias RootStore = Store<RootState, RootAction>
-
 @main
 @MainActor
 struct MusicPlayerApp: App {
@@ -26,11 +24,7 @@ struct MusicPlayerApp: App {
         }
     }()
     
-    @StateObject var store: RootStore = Store(
-        state: RootState(),
-        reducer: rootReducer,
-        middlewares: [middlewareLog(), middlewareRoot()]
-    )
+    @StateObject var store: RootStore = createRootStore()
 
     var body: some Scene {
         WindowGroup {

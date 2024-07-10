@@ -13,15 +13,11 @@ struct MainPage: View {
     @StateObject private var searchText = SearchText()
     @State private var carouselSelectedItem: CarouselItem = .recent
     @FocusState private var isFocusSearch: Bool
-    @State private var isTrack = true
     
     var body: some View {
         ScrollView {
             VStack {
                 header
-                Button("isTrack: \(isTrack)") {
-                    isTrack.toggle()
-                }
                 if let data = store.state.mainPageState.content {
                     ContentListView(axis: .vertical, data: data) { container in
                         if let model = container.value as? ShortlyTrackModel {
@@ -33,9 +29,22 @@ struct MainPage: View {
                         }
                     }
                 }
-            }.padding()
+                PlayerView()
+            }.padding(.horizontal, 24)
         }.onTapGesture {
             isFocusSearch = false
+        }.onAppear {
+            store.dispatch(
+                .player(
+                    action: .addPlayerItem(
+                        .init(
+                            audio: loadTestAudio() ?? Data(),
+                            model: .init(backendyID: "123", name: "test", artists: [], duration: "3:31", image: AppImage.noImage)
+                        )
+                    )
+                )
+            )
+            store.dispatch(.player(action: .updateCurrentTime))
         }
     }
 }
@@ -70,6 +79,7 @@ fileprivate extension MainPage {
                 search
             }
             carousel
+                .ignoresSafeArea()
         }
     }
 }
@@ -95,7 +105,7 @@ fileprivate extension MainPage {
                     if !value.isEmpty {
                         store.dispatch(
                             .mainPageReducer(
-                                action: .search(value, type: isTrack ? .tracks : .playlists)
+                                action: .search(value, type: .tracks)
                             )
                         )
                     }
@@ -133,8 +143,9 @@ fileprivate extension MainPage {
                             }
                         }
                 }
-            }
-        }
+            }.padding(.horizontal, 24)
+        }.scrollIndicators(.hidden)
+            .padding(.horizontal, -24)
     }
     
     @ViewBuilder func itemCarousel(text: String, isSelected: Bool) -> some View {
@@ -156,6 +167,7 @@ fileprivate extension MainPage {
 #Preview {
     ZStack {
         Color.blue
-        MainPage().padding()
-    }.ignoresSafeArea()
+            .ignoresSafeArea()
+        MainPage()
+    }.environmentObject(createRootStore())
 }
